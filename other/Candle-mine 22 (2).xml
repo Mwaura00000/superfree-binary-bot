@@ -1,0 +1,97 @@
+<xml xmlns="http://www.w3.org/1999/xhtml" collection="false">
+  <variables>
+    <variable type="" id="W4$:ZQCmEz#8+=4ysv5Y">stop loss</variable>
+    <variable type="" id="j}8O`Vs+RJljIwPu-_:_">initial amount</variable>
+    <variable type="" id="mXtFswo{p,|%W1:V-$+r">profit</variable>
+    <variable type="" id="%L?;380E6Lr^3b.%}t5Q">win amount</variable>
+    <variable type="" id="r;j5hdLRm`b6LFCDue7-">martingale</variable>
+  </variables>
+  <block type="trade" id="trade" x="-4" y="-45">
+    <field name="MARKET_LIST">synthetic_index</field>
+    <field name="SUBMARKET_LIST">random_index</field>
+    <field name="SYMBOL_LIST">R_100</field>
+    <field name="TRADETYPECAT_LIST">digits</field>
+    <field name="TRADETYPE_LIST">matchesdiffers</field>
+    <field name="TYPE_LIST">DIGITDIFF</field>
+    <field name="CANDLEINTERVAL_LIST">60</field>
+    <field name="TIME_MACHINE_ENABLED">FALSE</field>
+    <field name="RESTARTONERROR">TRUE</field>
+    <statement name="INITIALIZATION">
+      <block type="text_print" id="EDivDExvOQkw/~i;V+j8">
+        <value name="TEXT">
+          <shadow type="text" id="kv+MPF!f)#C[?TCT^dS(">
+            <field name="TEXT">candle mine version 2</field>
+          </shadow>
+        </value>
+        <next>
+          <block type="variables_set" id="IpH/OKA3R.E;dEgGMbf,">
+            <field name="VAR" id="W4$:ZQCmEz#8+=4ysv5Y" variabletype="">stop loss</field>
+            <value name="VALUE">
+              <block type="math_number" id="=XFKCMq#6s#Mo6`~.@`0">
+                <field name="NUM">9999</field>
+              </block>
+            </value>
+            <next>
+              <block type="variables_set" id="{_clcmJ(*gEi!Br8c}kM">
+                <field name="VAR" id="mXtFswo{p,|%W1:V-$+r" variabletype="">profit</field>
+                <value name="VALUE">
+                  <block type="math_number" id="q}((XO%dDMm1RXxPNqt#">
+                    <field name="NUM">9999</field>
+                  </block>
+                </value>
+                <next>
+                  <block type="variables_set" id=")ZZGf^cT0rOqa/Ma%NC]">
+                    <field name="VAR" id="j}8O`Vs+RJljIwPu-_:_" variabletype="">initial amount</field>
+                    <value name="VALUE">
+                      <block type="math_number" id="YHAI}G~p-MzbG{Q#}HYP">
+                        <field name="NUM">110</field>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="variables_set" id="Q!a:K2of=UH-gQ0Z-aVE">
+                        <field name="VAR" id="%L?;380E6Lr^3b.%}t5Q" variabletype="">win amount</field>
+                        <value name="VALUE">
+                          <block type="math_number" id="qe/8cYEj6Q[}5,}J1gGU">
+                            <field name="NUM">0</field>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="variables_set" id="-U?{:KrW@J6WJ12R5qTn">
+                            <field name="VAR" id="r;j5hdLRm`b6LFCDue7-" variabletype="">martingale</field>
+                            <value name="VALUE">
+                              <block type="math_number" id="SiDb13C`*2$U6_HFN7`S">
+                                <field name="NUM">0</field>
+                              </block>
+                            </value>
+                            <next>
+                              <block type="trade_again" id="_4aRAiz!A@Iudqx.xe;i">
+                                <field name="ONERRORCAT_LIST">purchase</field>
+                                <field name="ONERROR_LIST">continue</field>
+                                <next>
+                                  <block type="analysis" id="1}v)=!J6Zb1gtCw#C7?}">
+                                    <field name="ANALYSIS_LIST">indicator</field>
+                                    <field name="INDICATOR_LIST">rsi</field>
+                                    <field name="PARAMETER_LIST">14</field>
+                                    <next>
+                                      <block type="variables_get" id="/]J{/7T27h}`$Mj1!z2m">
+                                        <field name="VAR" id="j}8O`Vs+RJljIwPu-_:_" variabletype="">initial amount</field>
+                                      </block>
+                                    </next>
+                                  </block>
+                                </next>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+</xml>
